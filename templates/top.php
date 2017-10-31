@@ -3,7 +3,7 @@ session_start();
 
 $connection = mysqli_connect("eu-cdbr-west-01.cleardb.com","bdb88915ffc72f","2503d371");
  $db = mysqli_select_db($connection, "heroku_e38dcf8a772134f");
-    if (!$db_select) {
+    if (!$db) {
         die("Database selection failed: " . mysqli_connect_error());
     }
 
