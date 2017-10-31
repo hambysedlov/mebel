@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-$connection = mysql_connect("localhost","root","");
-$db = mysql_select_db("egor");
+$connection = mysql_connect("eu-cdbr-west-01.cleardb.com","bdb88915ffc72f","2503d371");
+$db = mysql_select_db("heroku_e38dcf8a772134f");
 mysql_set_charset("utf8");
 if(!$connection||!$db){
 	exit(mysql_error());
