@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-$connection = mysql_connect("eu-cdbr-west-01.cleardb.com","bdb88915ffc72f","2503d371");
-$db = mysql_select_db("heroku_e38dcf8a772134f");
+$connection = mysqli_connect("eu-cdbr-west-01.cleardb.com","bdb88915ffc72f","2503d371");
+$db = mysqli_select_db("heroku_e38dcf8a772134f");
 mysql_set_charset("utf8");
 if(!$connection||!$db){
 	exit(mysql_error());
