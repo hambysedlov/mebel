@@ -30,12 +30,12 @@
 			$postPassword=$_POST['password'];
 			$postEmail=$_POST['email'];
 
-			$result= mysql_query("SELECT * FROM `subscribers`");
+			$result= mysqli_query("SELECT * FROM `subscribers`",$connection);
 			
 			$proverka=0;
 			$id=999999999;
 			
-			while($row = mysql_fetch_array($result)){
+			while($row = mysqli_fetch_array($result)){
 								
 				$email=$row['email'];
 				$password=$row['password'];
@@ -64,9 +64,9 @@
 				
 				$_SESSION['user_id'] = $id;
 				
-				$resultSub= mysql_query("SELECT * FROM `subscribers` WHERE id=".$_SESSION['user_id']);
+				$resultSub= mysqli_query("SELECT * FROM `subscribers` WHERE id=".$_SESSION['user_id'],$connection);
 				
-				while($rowSub = mysql_fetch_array($resultSub)){			
+				while($rowSub = mysqli_fetch_array($resultSub)){			
 				$sections_id=$rowSub['sections_id'];
 				$name=$rowSub['name'];
 				}
@@ -87,7 +87,7 @@
 			
 			if (isset($_POST['chb'])){
 				require_once ("templates/idByDot.php");
-				$resultUpdates = mysql_query ("UPDATE `subscribers` SET sections_id='".$text."' WHERE id=".$_SESSION['user_id']);
+				$resultUpdates = mysqli_query ("UPDATE `subscribers` SET sections_id='".$text."' WHERE id=".$_SESSION['user_id'],$connection);
 				?>
 <script>
 	document.location.href='on.php';
