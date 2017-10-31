@@ -5,7 +5,7 @@ $connection = mysqli_connect("eu-cdbr-west-01.cleardb.com","bdb88915ffc72f","250
 $db = mysqli_select_db("heroku_e38dcf8a772134f",$connection);
 mysqli_set_charset("utf8");
 if(!$connection||!$db){
-	exit(mysql_error());
+	exit(mysqli_error());
 }
 ?>
 <!DOCTYPE HTML>
