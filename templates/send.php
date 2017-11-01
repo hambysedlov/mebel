@@ -6,8 +6,8 @@ echo "<p style='font-size:20px;'><b>Все фирмы:</b></p>";
 
 echo "<form method='POST' action='on.php'>";
 
-$sections= mysql_query("SELECT * FROM `section`");
-while($row = mysql_fetch_array($sections)){
+$sections= mysqli_query("SELECT * FROM `section`", $connection);
+while($row = mysqli_fetch_array($sections)){
 	
 	$name=$row['section_name'];
 	$id=$row['id'];
