@@ -21,7 +21,7 @@
 			}
 			
 			if(isset($_GET['sub'])&&$_GET['sub']=="no"&&isset($_SESSION['user_id'])){
-				$resultUnsub = mysql_query ("UPDATE `subscribers` SET sections_id='' WHERE id=".$_SESSION['user_id']);
+				$resultUnsub = mysqli_query ("UPDATE `subscribers` SET sections_id='' WHERE id=".$_SESSION['user_id'],$connection);
 			}
 			
 			if((isset($_POST['email'])&&isset($_POST['password']))||isset($_SESSION['user_id'])){ 
