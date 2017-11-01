@@ -66,7 +66,7 @@
 	  
 		$types= mysqli_query("SELECT * FROM `type`");
 	  
-		while($rowTypes = mysql_fetch_array($types)){
+		while($rowTypes = mysqli_fetch_array($types)){
 			
 		$type=$rowTypes['type']; 
 		$type_id=$rowTypes['id']; 
