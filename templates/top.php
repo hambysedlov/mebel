@@ -7,7 +7,7 @@ $connection = mysqli_connect("eu-cdbr-west-01.cleardb.com","bdb88915ffc72f","250
         die("Database selection failed: " . mysqli_connect_error());
     }
 
-mysqli_set_charset("utf8");
+mysqli_set_charset($connection,"utf8");
 if(!$connection||!$db){
 	exit(mysqli_error($connection));
 }
