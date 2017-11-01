@@ -13,7 +13,7 @@
 		
 		
 		
-		$result = mysql_query("SELECT * FROM furniture");
+		$result = mysqli_query("SELECT * FROM furniture",$connection);
 			
 			
 			
@@ -29,10 +29,10 @@
 					$description=$row['description'];
 					$image=$row['image'];
 					
-					$result_firm_unique = mysql_query("SELECT * FROM `section` WHERE id=".$row['firm_id']);
+					$result_firm_unique = mysqli_query("SELECT * FROM `section` WHERE id=".$row['firm_id'],$connection);
 					while($row_firm_unique = mysql_fetch_array($result_firm_unique)){
 						$firm=$row_firm_unique['section_name'];
-						$result_type_unique = mysql_query("SELECT * FROM `type` WHERE id=".$row['type_id']);
+						$result_type_unique = mysqli_query("SELECT * FROM `type` WHERE id=".$row['type_id'],$connection);
 						while($row_type_unique = mysql_fetch_array($result_type_unique)){
 							$type=$row_type_unique['type'];
 						
