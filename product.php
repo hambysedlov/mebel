@@ -64,7 +64,7 @@
 	  
 	  <?php 
 	  
-		$types= mysqli_query("SELECT * FROM `type`");
+		$types= mysqli_query("SELECT * FROM `type`",$connection);
 	  
 		while($rowTypes = mysqli_fetch_array($types)){
 			
