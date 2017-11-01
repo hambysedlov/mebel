@@ -24,9 +24,9 @@
 				echo "<h3 style='padding-left:20px;text-align:center;'>e-mail введён некорректно!</h3>";
 			}
 			
-			$result= mysql_query("SELECT * FROM subscribers");
+			$result= mysqli_query("SELECT * FROM subscribers",$connection);
 			$proverka=0;
-			while($row = mysql_fetch_array($result)){
+			while($row = mysqli_fetch_array($result)){
 								
 				$email=$row['email'];
 
@@ -38,7 +38,7 @@
 			}
 			
 			if($proverka==0&&$a==0){
-				$resultInsert = mysql_query ("INSERT INTO subscribers(name, surname, email, password) VALUES ('".$postName."','".$postSurname."','".$postEmail."','".$postPassword."')");
+				$resultInsert = mysqli_query ("INSERT INTO subscribers(name, surname, email, password) VALUES ('".$postName."','".$postSurname."','".$postEmail."','".$postPassword."')", $connection);
 				
 				unset($_SESSION["user_id"]);
 				
