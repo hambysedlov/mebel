@@ -45,7 +45,7 @@
 	  
 	  <?php 
 	  
-		$sections= mysqli_query("SELECT * FROM `section`");
+		$sections= mysqli_query("SELECT * FROM `section`", $connection);
 	  
 		while($rowSection = mysqli_fetch_array($sections)){
 			
