@@ -16,8 +16,8 @@
    <input name="cost">
 	<p><b>Фирма:</b></p>
 	<?php
-		$sections= mysql_query("SELECT * FROM `section`");
-			while($rowSection = mysql_fetch_array($sections)){
+		$sections= mysqli_query("SELECT * FROM `section`",$connection);
+			while($rowSection = mysqli_fetch_array($sections)){
 								$name=$rowSection['section_name'];
 								$idSection=$rowSection['id'];
 								echo "<input name='firm' type='radio' value=".$idSection.">$name";
@@ -25,7 +25,7 @@
 	?>	
 	<p><b>Тип:</b></p>
 	<?php
-		$typeQuery= mysql_query("SELECT * FROM `type`");
+		$typeQuery= mysqli_query("SELECT * FROM `type`",$connection);
 			while($rowType = mysql_fetch_array($typeQuery)){
 								$type=$rowType['type'];
 								$idType=$rowType['id'];
@@ -55,8 +55,8 @@
    <input name="name">
 	<p><b>Фирма:</b></p>
 	<?php
-		$sections= mysql_query("SELECT * FROM `section`");
-			while($rowSection = mysql_fetch_array($sections)){
+		$sections= mysqli_query("SELECT * FROM `section`",$connection);
+			while($rowSection = mysqli_fetch_array($sections)){
 								$name=$rowSection['section_name'];
 								$idSection=$rowSection['id'];
 								echo "<input name='firm' type='radio' value=".$idSection.">$name";
@@ -77,8 +77,8 @@
 									
 						<?php
 							
-							$sections= mysql_query("SELECT * FROM `section`");
-							while($row = mysql_fetch_array($sections)){
+							$sections= mysqli_query("SELECT * FROM `section`",$connection);
+							while($row = mysqli_fetch_array($sections)){
 								
 								$name=$row['section_name'];
 								
