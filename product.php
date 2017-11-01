@@ -45,9 +45,9 @@
 	  
 	  <?php 
 	  
-		$sections= mysql_query("SELECT * FROM `section`");
+		$sections= mysqli_query("SELECT * FROM `section`",$connection);
 	  
-		while($rowSection = mysql_fetch_array($sections)){
+		while($rowSection = mysqli_fetch_array($sections)){
 			
 		$section_name=$rowSection['section_name']; 
 		
@@ -64,7 +64,7 @@
 	  
 	  <?php 
 	  
-		$types= mysql_query("SELECT * FROM `type`");
+		$types= mysqli_query("SELECT * FROM `type`",$connection);
 	  
 		while($rowTypes = mysql_fetch_array($types)){
 			
@@ -87,14 +87,14 @@
 	$c=0;
 	
 	if(isset($start_price)&&isset($end_price)){
-		$product= mysql_query("SELECT * FROM `furniture` WHERE (cost>='".$start_price."' AND cost<='".$end_price."') ORDER BY cost");
+		$product= mysqli_query("SELECT * FROM `furniture` WHERE (cost>='".$start_price."' AND cost<='".$end_price."') ORDER BY cost",$connection);
 	}else{
-		$product= mysql_query("SELECT * FROM `furniture`  ORDER BY cost");
+		$product= mysqli_query("SELECT * FROM `furniture`  ORDER BY cost",$connection);
 	}
 	
 	
 	
-	while($row = mysql_fetch_array($product)){
+	while($row = mysqli_fetch_array($product)){
 		
 		$id=$row['id'];
 		$firm_id=$row['firm_id'];
@@ -106,7 +106,7 @@
 		$description=$row['description'];
 		$characteristics=$row['characteristics'];
 		
-		$firms= mysql_query("SELECT * FROM `section`");
+		$firms= mysqli_query("SELECT * FROM `section`",$connection);
 		
 		while($rowFirm = mysql_fetch_array($firms)){
 			
@@ -118,18 +118,18 @@
 		}
 		
 		if($o>0){
-			$section= mysql_query("SELECT * FROM `section` WHERE (id='".$firm_id."' AND section_name='".$_GET['firm']."')");
+			$section= mysqli_query("SELECT * FROM `section` WHERE (id='".$firm_id."' AND section_name='".$_GET['firm']."')",$connection);
 		}else{
-			$section= mysql_query("SELECT * FROM `section` WHERE id=".$firm_id);
+			$section= mysqli_query("SELECT * FROM `section` WHERE id=".$firm_id,$connection);
 		}
 		
-		while($rowSection = mysql_fetch_array($section)){
+		while($rowSection = mysqli_fetch_array($section)){
 			
 			$section_name=$rowSection['section_name'];
 			
-			$types= mysql_query("SELECT * FROM `type`");
+			$types= mysqli_query("SELECT * FROM `type`",$connection);
 			
-			while($rowTyper = mysql_fetch_array($types)){
+			while($rowTyper = mysqli_fetch_array($types)){
 			
 			$type=$rowTyper['type']; 
 
@@ -139,14 +139,14 @@
 			}
 			
 			if($c>0){
-				$typer= mysql_query("SELECT * FROM `type` WHERE (id='".$type_id."' AND type='".$_GET['type']."')");
+				$typer= mysqli_query("SELECT * FROM `type` WHERE (id='".$type_id."' AND type='".$_GET['type']."')",$connection);
 			}else{
-				$typer= mysql_query("SELECT * FROM `type` WHERE id=".$type_id);
+				$typer= mysqli_query("SELECT * FROM `type` WHERE id=".$type_id,$connection);
 			}
 			
 			
 		
-			while($rowType = mysql_fetch_array($typer)){
+			while($rowType = mysqli_fetch_array($typer)){
 				
 				$type=$rowType['type'];
 				
